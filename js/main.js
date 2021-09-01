@@ -5,14 +5,14 @@ const tryButton = document.querySelector('.js_button');
 const userNumber = document.querySelector('.js_userNumber');
 const track = document.querySelector('.js_track');
 const attempt = document.querySelector('.js_attempt');
-
+let tryNumber = 0;
 
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * 100);
     }
 
-console.log('Mi número aleatorio es ' + getRandomNumber());
+console.log('Mi número aleatorio es ' + randomNumber);
 
 
 function takeNumber(){
@@ -39,19 +39,16 @@ function takeNumber(){
 
 
 function takeCounter(){
-    let tryNumber = 1;
-  
-  attempt.innerHTML= `Número de intentos: ${tryNumber}` 
+   tryNumber += +1;
+  attempt.innerHTML= 'Número de intentos ' + tryNumber; 
 }
-
-
-
-
 
 function handleClick(){
   takeNumber();
- // takeCounter();
+ takeCounter();
 }
 tryButton.addEventListener('click' , handleClick);
+
+
 
 
