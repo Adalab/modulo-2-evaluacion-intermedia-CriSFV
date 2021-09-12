@@ -2,9 +2,10 @@
 
 const randomNumber = getRandomNumber(100);
 const tryButton = document.querySelector('.js_button');
-const userNumber = document.querySelector('.js_userNumber');
-const track = document.querySelector('.js_track');
-const attempt = document.querySelector('.js_attempt');
+const inputNumber = document.querySelector('.js_userNumber');
+const userHintContainer = document.querySelector('.js_track');
+const attemptContainer = document.querySelector('.js_attempt');
+const form = document.querySelector('.js-form');
 let tryNumber = 0;
 
 function getRandomNumber(max) {
@@ -14,11 +15,11 @@ function getRandomNumber(max) {
 console.log('Mi número aleatorio es ' + randomNumber);
 
 function writeMessage(sms) {
-  track.innerHTML = sms;
+  userHintContainer.innerHTML = sms;
 }
 
 function takeNumber() {
-  const number = parseInt(userNumber.value);
+  const number = parseInt(inputNumber.value);
 
   if (number > 0 && number <= 100) {
     if (number === randomNumber) {
@@ -35,7 +36,7 @@ function takeNumber() {
 
 function takeCounter(ev) {
   tryNumber += +1;
-  attempt.innerHTML = 'Número de intentos ' + tryNumber;
+  attemptContainer.innerHTML = 'Número de intentos ' + tryNumber;
 }
 
 function handleClick() {
@@ -44,7 +45,7 @@ function handleClick() {
 }
 tryButton.addEventListener('click', handleClick);
 
-userNumber.addEventListener('submit', (ev) => {
+form.addEventListener('submit', (ev) => {
   ev.prevertDefault();
-  console.log(userNumber);
+  console.log(form);
 });
