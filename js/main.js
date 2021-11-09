@@ -6,6 +6,7 @@ const inputNumber = document.querySelector('.js_userNumber');
 const userHintContainer = document.querySelector('.js_track');
 const attemptContainer = document.querySelector('.js_attempt');
 const form = document.querySelector('.js-form');
+const attemptNumbers = document.querySelector('.js_attemptNumbers');
 let tryNumber = 0;
 
 function getRandomNumber(max) {
@@ -23,11 +24,11 @@ function takeNumber() {
 
   if (number > 0 && number <= 100) {
     if (number === randomNumber) {
-      writeMessage('Has ganado campeona!!!');
+      writeMessage('¡¡¡Has ganado!!!');
     } else if (number < randomNumber) {
-      writeMessage('Demasiado bajo.');
+      writeMessage('Demasiado bajo <i class="far fa-sad-tear"></i>');
     } else if (number > randomNumber) {
-      writeMessage('Demasiado alto.');
+      writeMessage('Demasiado alto <i class="far fa-sad-tear"></i>');
     }
   } else {
     writeMessage('El número debe estar entre 1 y 100.');
@@ -36,7 +37,9 @@ function takeNumber() {
 
 function takeCounter(ev) {
   tryNumber += +1;
-  attemptContainer.innerHTML = 'Número de intentos ' + tryNumber;
+
+  attemptContainer.innerHTML = 'Número de intentos: ' + tryNumber;
+  attemptNumbers.innerHTML += inputNumber.value + ', ';
 }
 
 function handleClick() {
