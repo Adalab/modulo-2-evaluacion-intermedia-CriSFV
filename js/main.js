@@ -50,5 +50,4 @@ tryButton.addEventListener('click', handleClick);
 
 form.addEventListener('submit', (ev) => {
   ev.prevertDefault();
-  console.log(form);
 });
